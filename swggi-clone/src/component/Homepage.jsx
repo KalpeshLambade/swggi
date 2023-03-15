@@ -1,20 +1,36 @@
 import SignUp from "./SignUp";
 import "./Component.css";
 import { useState } from "react";
+import Login from "./Login";
 
 function Homepage() {
-  const [showPage, setShowPage] = useState(false);
+  const [showSignUpPage, setShowSignUpPage] = useState(false);
+  const [showLoginPage, setShowLoginPage] = useState(false);
 
-  function display() {
-    setShowPage(true);
+  function display(value) {
+    if(value === 's'){
+      setShowSignUpPage(true);
+      setShowLoginPage(false);
+    }
+    else{
+      setShowLoginPage(true);
+      setShowSignUpPage(false);
+    }
+    
   }
-  function closePage(){
-    setShowPage(false);
+  function closePage(value) {
+    if(value === 's'){
+      setShowSignUpPage(false);
+    }
+    else{
+      setShowLoginPage(false);
+    }
+    
   }
-
   return (
     <div>
-      {showPage && <SignUp onClose={() => closePage()} />}
+      {showSignUpPage && <SignUp onClose={() => closePage('s')} />}
+      {showLoginPage && <Login onClose={() => closePage('l')} />}
 
       <div id="homepage">
         <div>
@@ -26,8 +42,8 @@ function Homepage() {
               />
             </div>
             <div>
-              <button>Login</button>
-              <button onClick={() => display()}>SignUp</button>
+              <button onClick={() => display('l')}>Login</button>
+              <button onClick={() => display('s')}>SignUp</button>
             </div>
           </div>
 

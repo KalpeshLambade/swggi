@@ -1,15 +1,14 @@
 import "./Component.css";
 
-function SignUp(props){
-
+function Login(props){
     return(
-        <div id='sign-up'>
-            <div className="signUp-page">
+        <div id='login'>
+            <div className="login-page">
                 <div onClick={props.onClose}> X </div>
                 <div>
                     <div>
-                        <h2>Sign up</h2>
-                        <p> <strong> or </strong>login to your account</p>
+                        <h2>Log in</h2>
+                        <p> <strong> or </strong> create an account</p>
                     </div>
                     <div></div>
                 </div>
@@ -17,18 +16,16 @@ function SignUp(props){
                 <div>
                     <form>
                         <input type='number' placeholder="Phone Number" />
-                        <input type='text' placeholder="Name" />
-                        <input type='email' placeholder="Email" />
                     </form>
                 </div>
 
                 <div>
-                    <p>Have a referral code?</p>
                     <button>Continue</button>
-                    <p>By creating an account, I accept the <strong>Terms & Conditions & Privacy Policy</strong></p>
+                    <p class='tc'>By creating an account, I accept the <strong>Terms & Conditions & Privacy Policy</strong></p>
                 </div>
             </div>
         </div>
     )
 }
-export default SignUp;
+
+export default Login;
