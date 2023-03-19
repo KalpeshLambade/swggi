@@ -2,10 +2,12 @@ import SignUp from "./SignUp";
 import "./Component.css";
 import { useState } from "react";
 import Login from "./Login";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
   const [showSignUpPage, setShowSignUpPage] = useState(false);
   const [showLoginPage, setShowLoginPage] = useState(false);
+  const router = useNavigate();
 
   function display(value) {
     if(value === 's'){
@@ -26,6 +28,9 @@ function Homepage() {
       setShowLoginPage(false);
     }
     
+  }
+  function callIndex(){
+    router('/index');
   }
   return (
     <div>
@@ -55,7 +60,7 @@ function Homepage() {
             <div>
               <input type="text" placeholder="Enter Your Delivery Location" />
               <div>Locate Me</div>
-              <button>FIND FOOD</button>
+              <button onClick={() => callIndex()}>FIND FOOD</button>
             </div>
           </div>
 

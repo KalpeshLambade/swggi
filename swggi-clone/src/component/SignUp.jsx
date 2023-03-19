@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function SignUp(props){
     const[userData, setUserData] = useState({name:'', email:'', password: ''});
+    
 
     function submit(e){
         e.preventDefault();
