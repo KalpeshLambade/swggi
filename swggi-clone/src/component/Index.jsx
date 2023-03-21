@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Component.css";
 import Navbar from "./Navbar";
 
-
 function Index() {
     const[data, setData] = useState();
-
+    const router =useNavigate();
     // console.log(data && data,"data heer");
 
     useEffect(() => {
@@ -13,6 +13,29 @@ function Index() {
         .then(res => res.json())
         .then(Json => setData(Json.drinks));
     }, []);
+
+    function addToCart(e){
+      
+      var dataFromLs = JSON.parse(localStorage.getItem("userDataR"));
+      var currentUser = JSON.parse(localStorage.getItem("currentUserR"));
+
+      if(currentUser){
+        for(var i=0; i<dataFromLs.length; i++){
+          if(dataFromLs[i].email === currentUser){
+            var newObj = dataFromLs[i];
+            newObj["cartData"] =newObj["cartData"] || [];
+            newObj.cartData.push(e);
+            dataFromLs[i] =newObj;
+          }
+        }
+        localStorage.setItem("userDataR",JSON.stringify(dataFromLs));
+        alert("Product added to cart");
+      }
+      else{
+        router('/login');
+        alert("login to add products");
+      }
+    }
 
   return (
     <div>
@@ -63,6 +86,7 @@ function Index() {
                 <div><img src={e.strDrinkThumb} alt="image"/></div>
                 <p>{e.strDrink}</p>
                 <p>₹150</p>
+                <div><button onClick={ () => addToCart(e)}>Add to Cart</button></div>
             </div>
             ))}
         </div>

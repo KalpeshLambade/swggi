@@ -1,42 +1,30 @@
-import SignUp from "./SignUp";
 import "./Component.css";
-import { useState } from "react";
-import Login from "./Login";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { json, useNavigate } from "react-router-dom";
 
 function Homepage() {
-  const [showSignUpPage, setShowSignUpPage] = useState(false);
-  const [showLoginPage, setShowLoginPage] = useState(false);
   const router = useNavigate();
+  const [currentUser, setCurrentUser] = useState(false);
 
-  function display(value) {
-    if(value === 's'){
-      setShowSignUpPage(true);
-      setShowLoginPage(false);
+  useEffect(() => {
+    var dataFromLs = JSON.parse(localStorage.getItem("currentUserR"));
+    if (dataFromLs) {
+      setCurrentUser(true);
     }
-    else{
-      setShowLoginPage(true);
-      setShowSignUpPage(false);
-    }
-    
+  }, []);
+  // console.log(currentUser);
+
+  function logout() {
+    localStorage.removeItem("currentUserR");
+    setCurrentUser(false);
+    alert("Logout");
   }
-  function closePage(value) {
-    if(value === 's'){
-      setShowSignUpPage(false);
-    }
-    else{
-      setShowLoginPage(false);
-    }
-    
-  }
-  function callIndex(){
-    router('/index');
+
+  function callIndex() {
+    router("/index");
   }
   return (
     <div>
-      {showSignUpPage && <SignUp onClose={() => closePage('s')} />}
-      {showLoginPage && <Login onClose={() => closePage('l')} />}
-
       <div id="homepage">
         <div>
           <div className="Nav-top-first">
@@ -47,8 +35,14 @@ function Homepage() {
               />
             </div>
             <div>
-              <button onClick={() => display('l')}>Login</button>
-              <button onClick={() => display('s')}>SignUp</button>
+              {currentUser ? (
+                <button onClick={() => logout()}>Logout</button>
+              ) : (
+                <div>
+                  <button onClick={() => router('/login')}>Login</button>
+                  <button onClick={() => router("/signup")}>SignUp</button>
+                </div>
+              )}
             </div>
           </div>
 

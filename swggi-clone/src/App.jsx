@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 import AddProducts from "./component/AddProducts";
+import Cart from "./component/Cart";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/signup" element={<SignUp/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/addproduct" element={<AddProducts/>}/>
+        <Route exact path="/cart" element={<Cart/>} />
       </Routes>
     </div>
   );
