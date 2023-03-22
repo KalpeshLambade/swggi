@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const [userStatus, setUserStatus] = useState(false);
   const [cartData, setCartData] = useState();
   const [userName, setUserName] = useState("");
+  const route = useNavigate();
   const[userloginData, setUserLoginData] = useState("")
   useEffect(() => {
     displayCart();
   }, []);
+
+  function GotoSignin(){
+    route('/login');
+  }
 
   function displayCart() {
     
@@ -50,7 +56,7 @@ function Cart() {
               </div>
               <div>
                 <i className="fa-regular fa-user"></i>
-                {userloginData ? <p>{userName}</p> : <p>Sign In </p>}
+                {userloginData ? <p>{userName}</p> : <p onClick={() => {GotoSignin()}}>Log in </p>}
               </div>
             </div>
           </div>

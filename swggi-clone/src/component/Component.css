@@ -753,6 +753,10 @@ width:30%;
 .cart-order-l-payment >h3,i{
   font-size: 1.3vw;
 }
+.display-order{
+  height:40vh;
+  overflow: auto;
+}
 .display-order>div{
   /* border:1px solid red;  */
   height:10vh;
@@ -785,7 +789,7 @@ width:30%;
 .apply-coupon{
   border:3px dotted grey; 
   height:8vh;
-  margin: 5% 3%;
+  margin: 0 3%;
   display: flex;
   align-items:center;
   justify-content:center;
@@ -796,16 +800,16 @@ width:30%;
 }
 .bill-details{
   /* border:1px solid blue;  */
+  height: 90%;
 }
 .bill-details >h4{
   /* border:1px solid blue;  */
   text-align: left;
-  margin-top:15%;
   /* margin:6% 3%; */
   font-size:1.2vw;
 }
 .bill-details >div{
-  /* border:1px solid blue;  */
+  border:1px solid transparent; 
   width:90%;
   margin:auto;
 }
