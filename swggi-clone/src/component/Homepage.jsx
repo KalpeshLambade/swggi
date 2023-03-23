@@ -1,6 +1,7 @@
 import "./Component.css";
 import { useEffect, useState } from "react";
 import { json, useNavigate } from "react-router-dom";
+import  toast  from "react-hot-toast";
 
 function Homepage() {
   const router = useNavigate();
@@ -17,7 +18,7 @@ function Homepage() {
   function logout() {
     localStorage.removeItem("currentUserR");
     setCurrentUser(false);
-    alert("Logout");
+    toast.success("Logout");
   }
 
   function callIndex() {

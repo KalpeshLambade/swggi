@@ -2,6 +2,7 @@ import "./Component.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Homepage from "./Homepage";
+import toast  from "react-hot-toast";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -25,10 +26,10 @@ function Login() {
       localStorage.setItem("currentUserR", JSON.stringify(formData.email));
       setFormData({ email: "", password: "" });
       router("/");
-      alert("Log in sucessful");
+      toast.success("Log in sucessful");
     } else {
       setFormData({ email: "", password: "" });
-      alert("Please check email or password");
+      toast.error("Please check email or password");
     }
   }
 

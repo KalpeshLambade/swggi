@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Component.css";
 import Navbar from "./Navbar";
+import toast from "react-hot-toast";
 
 function Index() {
     const[data, setData] = useState();
@@ -29,11 +30,11 @@ function Index() {
           }
         }
         localStorage.setItem("userDataR",JSON.stringify(dataFromLs));
-        alert("Product added to cart");
+        toast.success("Product is added to cart");
       }
       else{
         router('/login');
-        alert("login to add products");
+        toast.error("login to add products");
       }
     }
 

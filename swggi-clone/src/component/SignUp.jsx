@@ -2,6 +2,7 @@ import "./Component.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Homepage from "./Homepage";
+import toast from "react-hot-toast";
 
 function SignUp() {
   const [userData, setUserData] = useState({
@@ -24,16 +25,16 @@ function SignUp() {
     }
     if (flag) {
       setUserData({ ...userData, ["email"]: "" });
-      return alert("email already exsited");
+      return toast.error("email already exsited");
     } else if (userData.password.length < 8) {
       setUserData({ ...userData, ["password"]: "" });
-      alert("password must be 8 characters");
+      toast.error("password must be 8 characters");
     } else {
       dataFromLs.push(userData);
       localStorage.setItem("userDataR", JSON.stringify(dataFromLs));
       setUserData({ name: "", email: "", password: "" });
       router("/login");
-      alert("Registration done");
+      toast.success("Registration done");
     }
   }
 

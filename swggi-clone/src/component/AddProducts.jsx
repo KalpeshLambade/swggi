@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
+import toast from 'react-hot-toast';
+
 function AddProducts() {
   const [productData, setProductData] = useState({
     name: "",
@@ -13,7 +15,7 @@ function AddProducts() {
     dataFromLs.push(productData);
     localStorage.setItem("productDataR", JSON.stringify(dataFromLs));
     setProductData({ name: "", image: "", price: "" });
-    alert("Products Added");
+    toast.success("Products Added");
   }
   function formData(e) {
     var name = e.target.name;
