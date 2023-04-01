@@ -83,8 +83,8 @@ function Index() {
         </div>
         <div className="display-food-data">
             {data && data.map((e,i) => (
-                <div key={i}>
-                <div><img src={e.strDrinkThumb} alt="image"/></div>
+                <div key={i} onClick={ () => router(`/allproducts/${e.idDrink}`) }>
+                <div><img src={e.strDrinkThumb} alt="drink-img"/></div>
                 <p>{e.strDrink}</p>
                 <p>₹150</p>
                 <div><button onClick={ () => addToCart(e)}>Add to Cart</button></div>

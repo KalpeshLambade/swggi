@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const route = useNavigate();
   const [user, setUser] = useState(null);
+  const[Data, setData] =useState();
 
   useEffect(() => {
     var dataFromLs = JSON.parse(localStorage.getItem("userDataR"));
@@ -26,6 +27,15 @@ function Navbar() {
   function signinPage() {
     route("/signup");
   }
+  function inputData(e){
+    setData(e.target.value);
+  }
+  function submitInputData(){
+    if(Data){
+      route(`/searchproducts/${Data}`)
+    }
+  }
+
   return (
     <div className="navbar">
       <div>
@@ -37,10 +47,12 @@ function Navbar() {
             />
           </div>
           <div>
-            <p>
+            {/* <p>
               <strong>Malad West </strong>
               Malad, Malad West, Mumbai, Mah....
-            </p>
+            </p> */}
+            <input type="text" placeholder="search" onChange={(e) => (inputData(e))}/>
+            <button onClick={() => {submitInputData()}}>Search Products</button>
           </div>
         </div>
 

@@ -6,6 +6,8 @@ import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 import AddProducts from "./component/AddProducts";
 import Cart from "./component/Cart";
+import SingleProductPage from "./component/SingleProductPage";
+import SearchProduct from "./component/SearchProduct";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/addproduct" element={<AddProducts/>}/>
         <Route exact path="/cart" element={<Cart/>} />
+        <Route exact path="/allproducts/:id" element={<SingleProductPage/>} />
+        <Route exact path="/searchproducts/:name" element={<SearchProduct/>} />
       </Routes>
     </div>
   );
