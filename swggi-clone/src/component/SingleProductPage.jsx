@@ -30,14 +30,26 @@ const SingleProductPage = () => {
             <h2>MM Mithaiwala</h2>
             <p>Sweets, Snacks</p>
             <p>Malad West 1.7 km</p>
-            <div></div>
+            <div>
+              <div>
+                <img
+                  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_18,h_18/v1648635511/Delivery_fee_new_cjxumu"
+                  alt="bicycle"
+                />
+              </div>
+              <p>1.7 kms | ₹31 Delivery fee will apply</p>
+            </div>
           </div>
           <div className="singleproduct-rating">
             <p>⭐ 4.4</p>
             <p>10K+ ratings</p>
           </div>
         </div>
-        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
       {/* {singleProduct && (
         <div>

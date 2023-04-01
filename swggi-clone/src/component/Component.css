@@ -903,6 +903,9 @@ width:30%;
  height:100%;
  width:50%;
  text-align: left;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
 }
 .singleproduct-rating{
    border:1px solid grey;
@@ -928,4 +931,10 @@ border-bottom:1px solid grey;
   display:flex;
   align-items:center;
   justify-content:center;
+}
+.singleproduct-info p{
+  
+}
+.singleproduct-info >div{
+  display:flex;
 }
