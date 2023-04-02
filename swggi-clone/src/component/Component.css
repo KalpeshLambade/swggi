@@ -938,3 +938,28 @@ border-bottom:1px solid grey;
 .singleproduct-info >div{
   display:flex;
 }
+.singleproduct-mins{
+  display: flex;
+  border: 1px solid green;
+  height: 15%;
+  width:40%;
+  align-items: center;
+
+}
+.singleproduct-mins >p{
+  width:40%;
+  font-size: 1vw;
+}
+.singleproduct-discount{
+  border: 1px solid green;
+  width:95%;
+  margin: auto;
+  height: 60%;
+  display: flex;
+  align-items: center;
+}
+.singleproduct-discount >div{
+  border: 1px solid red;
+  width:25%;
+  height: 60%;
+}

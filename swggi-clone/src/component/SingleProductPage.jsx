@@ -46,8 +46,16 @@ const SingleProductPage = () => {
           </div>
         </div>
         <div>
-          <div></div>
-          <div></div>
+          <div className="singleproduct-mins">
+            <p><i className="fa-regular fa-clock"></i>27 MINS</p>
+            <p><i className="fa-solid fa-indian-rupee-sign"></i>350 for two</p>
+          </div>
+          <div className="singleproduct-discount">
+            <div>
+              <div><i className="fa-solid fa-percent"></i><p>50% OFF UPTO ₹100</p></div>
+            </div>
+            <div></div>
+          </div>
           <div></div>
         </div>
       </div>
