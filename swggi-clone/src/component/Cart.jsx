@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import reducer, { initialState } from "./Reducer/reducer";
 
 function Cart() {
   const [userStatus, setUserStatus] = useState(false);
   const [cartData, setCartData] = useState();
   const [userName, setUserName] = useState("");
   const route = useNavigate();
-  const[userloginData, setUserLoginData] = useState("")
+  const [userloginData, setUserLoginData] = useState("");
   useEffect(() => {
     displayCart();
   }, []);
 
-  function GotoSignin(){
-    route('/login');
+  function GotoSignin() {
+    route("/login");
   }
 
   function displayCart() {
-    
     var dataFromLS = JSON.parse(localStorage.getItem("userDataR"));
     var currentUser = JSON.parse(localStorage.getItem("currentUserR"));
     setUserLoginData(currentUser);
@@ -28,6 +28,16 @@ function Cart() {
         setCartData(dataFromLS[i].cartData);
       }
     }
+  }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  function decCount() {
+    dispatch({ type: "decremented_count" });
+  }
+
+  function inCount() {
+    dispatch({ type: "incremented_count" });
   }
 
   return (
@@ -56,7 +66,17 @@ function Cart() {
               </div>
               <div>
                 <i className="fa-regular fa-user"></i>
-                {userloginData ? <p>{userName}</p> : <p onClick={() => {GotoSignin()}}>Log in </p>}
+                {userloginData ? (
+                  <p>{userName}</p>
+                ) : (
+                  <p
+                    onClick={() => {
+                      GotoSignin();
+                    }}
+                  >
+                    Log in{" "}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -103,6 +123,7 @@ function Cart() {
                 </div>
               </div>
             </div>
+
             <div className="cart-order-r">
               <div className="display-order">
                 {cartData &&
@@ -116,9 +137,15 @@ function Cart() {
                         <h3>{e.strDrink}</h3>
                         <p>Malad West</p>
                       </div>
+                      <div>
+                        <button onClick={decCount}>-</button>
+                        <div>{state.count}</div>
+                        <button onClick={inCount}>+</button>
+                      </div>
                     </div>
                   ))}
               </div>
+
               <div className="apply-coupon">
                 <i className="fa-solid fa-rug"></i>
                 <p>Apply Coupon</p>

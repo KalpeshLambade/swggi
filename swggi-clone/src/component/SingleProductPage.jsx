@@ -17,7 +17,7 @@ const SingleProductPage = () => {
   return (
     <div id="singleproduct">
       <Navbar />
-      <div className="singleproduct-display">
+      {/* <div className="singleproduct-display">
         <div>
           <div>Home /Mumbai /Malad West/ MM Mithaiwala</div>
           <div className="singleproduct-icon">
@@ -58,8 +58,8 @@ const SingleProductPage = () => {
           </div>
           <div></div>
         </div>
-      </div>
-      {/* {singleProduct && (
+      </div> */}
+      {singleProduct && (
         <div>
           <div>
             <div>
@@ -68,7 +68,7 @@ const SingleProductPage = () => {
             <h1>{singleProduct.strDrink}</h1>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
